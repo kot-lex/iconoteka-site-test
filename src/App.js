@@ -13,7 +13,7 @@ class App extends Component {
         </header>
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
-            <img src={icon} style={{ width: '100px', height: '100px' }} />
+            <img src={icon} alt="icon" style={{ width: '100px', height: '100px' }} />
         </p>
       </div>
     );
