@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "http://kot-lex.github.io/iconoteka-site-test",
   "dependencies": {
+    "fs-extra": "^6.0.1",
     "iconoteka-lib-test": "git+https://github.com/kot-lex/iconoteka-lib-test.git",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
