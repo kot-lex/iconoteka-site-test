@@ -3,7 +3,7 @@ const path = require('path');
 
 function getIconObject(filename) {
     const parts = filename.split('_');
-    
+
 }
 
 async function getFiles(dir) {
@@ -15,7 +15,9 @@ async function getFiles(dir) {
         if (stats.isDirectory()) {
             return getFiles(`${dir}/${item}`);
         } else {
-            return Promise.resolve(`${dirName}/${item}`);
+            return Promise.resolve({
+                path: `${dirName}/${item}`
+            });
         }
     });
     return {
