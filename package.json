@@ -12,7 +12,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "REACT_APP_BASE_URL=https://kot-lex.github.io/iconoteka-site-test/ react-scripts build",
+    "build": "REACT_APP_BASE_URL=https://kot-lex.github.io react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "copyIconoteka": "cpx './node_modules/iconoteka-lib-test/iconoteka/**' ./src/iconoteka/ --clean",
