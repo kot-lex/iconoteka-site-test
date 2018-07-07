@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 const Iconoteka = require('./iconoteka/iconoteka.json');
+const baseUrl = process.env.REACT_APP_BASE_URL || 'http://localhost:3000';
 
 
 class App extends Component {
@@ -31,7 +32,7 @@ class App extends Component {
     getIcons(group) {
         const images = group.items && group.items.map(iconItem => {
             const icon = require(`./iconoteka/${iconItem.path}`);
-            return !iconItem.hidden && <img src={icon} alt="icon" style={{ width: '100px', height: '100px' }} />
+            return !iconItem.hidden && <img src={baseUrl + icon} alt="icon" style={{ width: '100px', height: '100px' }} />
         }).filter(item => item);
 
         return (images && !!images.length) && (
