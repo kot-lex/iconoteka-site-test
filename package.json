@@ -5,7 +5,7 @@
   "homepage": "http://kot-lex.github.io/iconoteka-site-test",
   "dependencies": {
     "fs-extra": "^6.0.1",
-    "iconoteka-lib-test": "git+https://github.com/kot-lex/iconoteka-lib-test.git",
+    "iconoteka-lib-test": "kot-lex/iconoteka-lib-test",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-scripts": "1.1.4"
@@ -15,7 +15,9 @@
     "build": "REACT_APP_BASE_URL=https://kot-lex.github.io/iconoteka-site-test/ react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "postinstall": "cpx './node_modules/iconoteka-lib-test/iconoteka/**' ./src/iconoteka/ --clean"
+    "copyIconoteka": "cpx './node_modules/iconoteka-lib-test/iconoteka/**' ./src/iconoteka/ --clean",
+    "buildCatalogue": "node ./getFiles.js",
+    "postinstall": "npm run copyIconoteka && npm run buildCatalogue"
   },
   "devDependencies": {
     "cpx": "^1.5.0"
