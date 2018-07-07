@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 const Iconoteka = require('./iconoteka/iconoteka.json');
 const baseUrl = process.env.REACT_APP_BASE_URL || 'http://localhost:3000';
