@@ -46,14 +46,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-            <input style={{fontSize: '200%', width: '600px', padding: '3px'}} onChange={this.onChange} placeholder="Search"/>
-            {this.state.Iconoteka.items && this.state.Iconoteka.items.map(group => this.getIcons(group))}
-        </p>
+        <input style={{fontSize: '200%', width: '600px', padding: '3px'}} onChange={this.onChange} placeholder="Search"/>
+        {this.state.Iconoteka.items && this.state.Iconoteka.items.map(group => this.getIcons(group))}
       </div>
     );
   }
