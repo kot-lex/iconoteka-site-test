@@ -13,6 +13,7 @@ class App extends Component {
     state = {
         Iconoteka,
         style: 'fill',
+        search: ''
     };
 
     constructor(props) {
@@ -22,16 +23,23 @@ class App extends Component {
     }
 
     onSearch(event) {
-        const Iconoteka = Object.assign({}, this.state.Iconoteka);
-        Iconoteka.items = this.state.Iconoteka.items.map(group => this.filterByName(group, event.target.value));
-        this.setState({ Iconoteka });
+        this.setState({
+            search: event.target.value
+        });
+
+        this.filterIcons();
     }
 
     onStyleChange(event, style) {
-
+        event.preventDefault();
     }
 
-    filterByName(group, search) {
+    filterIcons(style = this.state.style, search = this.state.search) {
+        const Iconoteka = Object.assign({}, this.state.Iconoteka);
+        Iconoteka.items = this.state.Iconoteka.items.map(group => this.filterIconGroup(group, search));
+        this.setState({ Iconoteka });
+    }
+    filterIconGroup(group, search, style) {
         const items = group.items && group.items.map(iconItem => {
             const newItem = Object.assign({}, iconItem, {
                 hidden: !iconItem.path.includes(search.toLowerCase())
