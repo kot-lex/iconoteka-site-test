@@ -4,7 +4,7 @@ import './IconsFilter.css';
 export default function IconsFilter(props) {
     return (
       <div className="icons-filter">
-          <input className="icons-filter__search" onChange={props.onChange} placeholder="Search"/>
+          <input className="icons-filter__search" onChange={props.onChange} onKeyUp={props.onChange} placeholder="Search"/>
           <ul className="icons-filter__style">
               <li>
                   Style

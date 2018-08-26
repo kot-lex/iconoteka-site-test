@@ -4,9 +4,9 @@ import './IconsGroup.css';
 
 export default function IconsGroup(props) {
 
-    const images = props.group.items && props.group.items.map(iconItem => <IconCard path={iconItem.path} fileName={iconItem.fileName} isHidden={iconItem.isHidden} baseUrl={props.baseUrl} />).filter(item => item);
+    const images = props.group.items && props.group.items.map(iconItem => <IconCard key={iconItem.fileName} path={iconItem.path} fileName={iconItem.fileName} isHidden={iconItem.isHidden} baseUrl={props.baseUrl} />).filter(item => item);
 
-    if (!images || (images && !images.length)) {
+    if (!images || (images && !images.length) || props.group.hiddenItems === props.group.items.length) {
         return null;
     }
 

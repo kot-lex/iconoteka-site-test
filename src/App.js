@@ -36,24 +36,32 @@ class App extends Component {
 
     filterIcons(style = this.state.style, search = this.state.search) {
         const Iconoteka = Object.assign({}, this.state.Iconoteka);
-        Iconoteka.items = this.state.Iconoteka.items.map(group => this.filterIconGroup(group, search));
+        const filteredGroups = this.state.Iconoteka.items.map(group => this.filterIconGroup(group, search, style));
+        Iconoteka.items = filteredGroups;
         this.setState({ Iconoteka });
     }
+
     filterIconGroup(group, search, style) {
+        let hiddenItems = 0;
         const items = group.items && group.items.map(iconItem => {
+            const isHidden = !iconItem.path.includes(search.toLowerCase());
+            if (isHidden) {
+                hiddenItems += 1;
+            }
             const newItem = Object.assign({}, iconItem, {
-                hidden: !iconItem.path.includes(search.toLowerCase())
+                isHidden
             });
             return newItem;
         });
 
         return Object.assign({}, group, {
-            items
+            items,
+            hiddenItems
         })
     }
 
     getIcons(group) {
-        return <IconsGroup baseUrl={baseUrl} group={group} />
+        return group.name && <IconsGroup baseUrl={baseUrl} group={group} key={group.name} />
     }
 
   render() {
@@ -61,7 +69,7 @@ class App extends Component {
       <div className="app">
         <Header/>
         <IconsFilter onChange={this.onSearch} style={this.state.style} onStyleChange={this.onStyleChange} />
-        {this.state.Iconoteka.items && this.state.Iconoteka.items.map(group => this.getIcons(group))}
+        {this.state.Iconoteka.items.map(group => this.getIcons(group))}
       </div>
     );
   }
