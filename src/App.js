@@ -21,9 +21,9 @@ class App extends Component {
         this.onSearch = this.onSearch.bind(this);
     }
 
-    onSearch(e) {
+    onSearch(event) {
         const Iconoteka = Object.assign({}, this.state.Iconoteka);
-        Iconoteka.items = this.state.Iconoteka.items.map(group => this.filter(group, e.target.value));
+        Iconoteka.items = this.state.Iconoteka.items.map(group => this.filterByName(group, event.target.value));
         this.setState({ Iconoteka });
     }
 
@@ -31,7 +31,7 @@ class App extends Component {
 
     }
 
-    filter(group, search) {
+    filterByName(group, search) {
         const items = group.items && group.items.map(iconItem => {
             const newItem = Object.assign({}, iconItem, {
                 hidden: !iconItem.path.includes(search.toLowerCase())
