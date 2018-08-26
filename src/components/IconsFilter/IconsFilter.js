@@ -9,10 +9,18 @@ export default (props) => {
               <li>
                   Style
               </li>
-              <li className="icons-filter__control">
+              <li className={
+                  props.style === 'fill' ?
+                      'icons-filter__control icons-filter__control_active' :
+                      'icons-filter__control'
+              }>
                   <a href="#" onClick={event => props.onStyleChange(event, 'fill')}>Fill</a>
               </li>
-              <li className="icons-filter__control icons-filter__control_active">
+              <li className={
+                  props.style === 'stroke' ?
+                      'icons-filter__control icons-filter__control_active' :
+                      'icons-filter__control'
+              }>
                   <a href="#" onClick={event => props.onStyleChange(event, 'stroke')}>Stroke</a>
               </li>
           </ul>
