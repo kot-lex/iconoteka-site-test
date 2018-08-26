@@ -14,14 +14,14 @@ export default function IconsFilter(props) {
                       'icons-filter__control icons-filter__control_active' :
                       'icons-filter__control'
               }>
-                  <a href="#" onClick={event => props.onStyleChange(event, 'fill')}>Fill</a>
+                  <a href="#fill" onClick={event => props.onStyleChange(event, 'fill')}>Fill</a>
               </li>
               <li className={
                   props.style === 'stroke' ?
                       'icons-filter__control icons-filter__control_active' :
                       'icons-filter__control'
               }>
-                  <a href="#" onClick={event => props.onStyleChange(event, 'stroke')}>Stroke</a>
+                  <a href="#stroke" onClick={event => props.onStyleChange(event, 'stroke')}>Stroke</a>
               </li>
           </ul>
       </div>
