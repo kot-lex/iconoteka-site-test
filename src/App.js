@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import IconsGroup from './components/IconsGroup';
 import IconsFilter from './components/IconsFilter';
 import Header from './components/Header';
+import IconsGrid from './components/IconsGrid/IconsGrid';
 
 const Iconoteka = require('./iconoteka/iconoteka.json');
 const baseUrl = process.env.REACT_APP_BASE_URL || 'http://localhost:3000';
@@ -60,16 +60,12 @@ class App extends Component {
         })
     }
 
-    getIcons(group) {
-        return group.name && <IconsGroup baseUrl={baseUrl} group={group} key={group.name} />
-    }
-
   render() {
     return (
       <div className="app">
         <Header/>
         <IconsFilter onChange={this.onSearch} style={this.state.style} onStyleChange={this.onStyleChange} />
-        {this.state.Iconoteka.items.map(group => this.getIcons(group))}
+        <IconsGrid iconoteka={this.state.Iconoteka} baseUrl={baseUrl} />
       </div>
     );
   }
