@@ -1,0 +1,60 @@
+.icon-card {
+    display: inline-block;
+    position: relative;
+    flex-wrap: wrap;
+    align-items: center;
+    text-align: center;
+    width: 150px;
+    height: 150px;
+}
+
+.icon-card:hover {
+    background: #F2F2F2;
+}
+
+.icon-card__icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto;
+    margin-top: 36px;
+}
+
+.icon-card__title {
+    display: block;
+    color: #999999;
+    width: 100%;
+    margin-top: 16px;
+    padding: 0 10px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.icon-card:hover .icon-card__title {
+    color: #000;
+}
+
+.icon-card__download,
+.icon-card__download:link,
+.icon-card__download:visited,
+.icon-card__download:active {
+    color: #000;
+    text-decoration: none;
+}
+
+.icon-card__download {
+    color: #000;
+    text-decoration: none;
+    display: none;
+    bottom: -36px;
+    position: absolute;
+    text-transform: uppercase;
+    height: 36px;
+    width: 100%;
+    background: #F2F2F2;
+}
+
+
+
+.icon-card:hover .icon-card__download {
+    display: block;
+}

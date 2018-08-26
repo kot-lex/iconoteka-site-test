@@ -15,11 +15,25 @@ async function getFiles(dir) {
         if (stats.isDirectory()) {
             return getFiles(`${dir}/${item}`);
         } else {
+
+            const [category, style] = item.split('.svg')[0].split('_').slice(-2);
+
+            const categories = {
+                b: 'bold',
+                r: 'regular',
+                l: 'light'
+            };
+
             return Promise.resolve({
+                isFill: style === 'f' || style === 'b',
+                isStroke: style === 's' || style === 'b',
+                category: categories[category],
+                fileName: item,
                 path: `${dirName}/${item}`
             });
         }
     });
+
     return {
         name: dirName,
         items: await Promise.all(data)
