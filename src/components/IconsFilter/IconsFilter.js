@@ -1,7 +1,7 @@
 import React from 'react';
 import './IconsFilter.css';
 
-export default (props) => {
+export default function IconsFilter(props) {
     return (
       <div className="icons-filter">
           <input className="icons-filter__search" onChange={props.onChange} placeholder="Search"/>

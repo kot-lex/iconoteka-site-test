@@ -1,7 +1,7 @@
 import React from 'react';
 import './IconCard.css';
 
-export default (props) => {
+export default function IconCard(props) {
     const icon = require(`../../iconoteka/${props.path}`);
     return !props.isHidden && (<div className="icon-card">
         <img className="icon-card__icon" src={props.baseUrl + icon} alt="icon"/>
