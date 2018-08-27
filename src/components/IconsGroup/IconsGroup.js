@@ -3,17 +3,16 @@ import IconCard from '../IconCard';
 import './IconsGroup.css';
 
 export default function IconsGroup(props) {
+  const images = props.group.items && props.group.items.map(iconItem => <IconCard key={iconItem.fileName} path={iconItem.path} fileName={iconItem.fileName} isHidden={iconItem.isHidden} baseUrl={props.baseUrl} />).filter(item => item);
 
-    const images = props.group.items && props.group.items.map(iconItem => <IconCard key={iconItem.fileName} path={iconItem.path} fileName={iconItem.fileName} isHidden={iconItem.isHidden} baseUrl={props.baseUrl} />).filter(item => item);
+  if (!images || (images && !images.length) || props.group.hiddenItems === props.group.items.length) {
+    return null;
+  }
 
-    if (!images || (images && !images.length) || props.group.hiddenItems === props.group.items.length) {
-        return null;
-    }
-
-    return (
-        <div className="icons-group">
-            <h3 className="icons-group__title">{props.group.name}</h3>
-            {images}
-        </div>
-    )
+  return (
+    <div className="icons-group">
+      <h3 className="icons-group__title">{props.group.name}</h3>
+      {images}
+    </div>
+  );
 }
