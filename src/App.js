@@ -12,6 +12,7 @@ const baseUrl = process.env.REACT_APP_BASE_URL || 'http://localhost:3000';
 class App extends Component {
     state = {
       Iconoteka,
+      filteredItems: Iconoteka.items,
       style: 'fill',
       search: '',
     };
@@ -35,30 +36,23 @@ class App extends Component {
     }
 
     filterIcons({ style } = this.state, { search } = this.state) {
-      const iconoteka = { ...this.state };
-      const filteredGroups = this.state.Iconoteka.items.map(
-        group => this.filterIconGroup(group, search, style),
-      );
-      iconoteka.items = filteredGroups;
-      this.setState({ Iconoteka: iconoteka });
+
+      const filteredGroups = this.state.Iconoteka.items
+        .map(
+          group => this.filterIconGroup(group, search, style),
+        )
+        .filter(group => group.items && group.items.length);
+
+      this.setState({ filteredItems: filteredGroups });
     }
 
     filterIconGroup(group, search, style) {
-      let hiddenItems = 0;
-      const items = group.items && group.items.map((iconItem) => {
-        const isHidden = !iconItem.path.includes(search.toLowerCase());
-        if (isHidden) {
-          hiddenItems += 1;
-        }
-        const newItem = Object.assign({}, iconItem, {
-          isHidden,
-        });
-        return newItem;
+      const items = group.items && group.items.filter((iconItem) => {
+        return iconItem.path.includes(search.toLowerCase());
       });
 
       return Object.assign({}, group, {
         items,
-        hiddenItems,
       });
     }
 
@@ -71,7 +65,7 @@ class App extends Component {
             style={this.state.style}
             onStyleChange={this.onStyleChange}
           />
-          <IconsGrid iconoteka={this.state.Iconoteka} baseUrl={baseUrl} />
+          <IconsGrid items={this.state.filteredItems} baseUrl={baseUrl} />
         </div>
       );
     }

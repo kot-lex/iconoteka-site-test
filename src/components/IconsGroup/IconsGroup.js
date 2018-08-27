@@ -1,18 +1,33 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import IconCard from '../IconCard';
 import './IconsGroup.css';
 
-export default function IconsGroup(props) {
-  const images = props.group.items && props.group.items.map(iconItem => <IconCard key={iconItem.fileName} path={iconItem.path} fileName={iconItem.fileName} isHidden={iconItem.isHidden} baseUrl={props.baseUrl} />).filter(item => item);
-
-  if (!images || (images && !images.length) || props.group.hiddenItems === props.group.items.length) {
-    return null;
-  }
+export default function IconsGroup({ group, baseUrl }) {
+  const images = group.items
+    .map(iconItem => (
+      <IconCard
+        key={iconItem.fileName}
+        path={iconItem.path}
+        fileName={iconItem.fileName}
+        isHidden={iconItem.isHidden}
+        baseUrl={baseUrl}
+      />
+    ));
 
   return (
     <div className="icons-group">
-      <h3 className="icons-group__title">{props.group.name}</h3>
+      <h3 className="icons-group__title">{group.name}</h3>
       {images}
     </div>
   );
 }
+
+IconsGroup.propTypes = {
+  group: PropTypes.shape({
+    items: PropTypes.array.isRequired,
+    name: PropTypes.string.isRequired,
+  }).isRequired,
+  baseUrl: PropTypes.string.isRequired,
+};
