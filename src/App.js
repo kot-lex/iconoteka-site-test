@@ -23,21 +23,27 @@ class App extends Component {
       this.onSearch = this.onSearch.bind(this);
     }
 
+    componentDidMount() {
+      this.filterIcons();
+    }
+
     onSearch(event) {
       this.setState({
         search: event.target.value,
       });
 
-      this.filterIcons();
+      this.filterIcons(this.state.style, event.target.value);
     }
 
     onStyleChange(event, style) {
       event.preventDefault();
+      this.setState({ style });
+      this.filterIcons(style);
     }
 
-    filterIcons({ style } = this.state, { search } = this.state) {
-
-      const filteredGroups = this.state.Iconoteka.items
+    filterIcons(style = 'fill', search = '') {
+      const { Iconoteka: iconoteka } = this.state;
+      const filteredGroups = iconoteka.items
         .map(
           group => this.filterIconGroup(group, search, style),
         )
@@ -47,9 +53,14 @@ class App extends Component {
     }
 
     filterIconGroup(group, search, style) {
-      const items = group.items && group.items.filter((iconItem) => {
-        return iconItem.path.includes(search.toLowerCase());
-      });
+      const items = group.items && group.items
+        // Filter by search string
+        .filter(iconItem => iconItem.path.includes(search.toLowerCase()))
+        // Filter by style
+        .filter((iconItem) => {
+          return (style === 'fill' && iconItem.isFill)
+          || (style === 'stroke' && iconItem.isStroke);
+        });
 
       return Object.assign({}, group, {
         items,
@@ -57,15 +68,16 @@ class App extends Component {
     }
 
     render() {
+      const { style, filteredItems } = this.state;
       return (
         <div className="app">
           <Header />
           <IconsFilter
             onChange={this.onSearch}
-            style={this.state.style}
+            style={style}
             onStyleChange={this.onStyleChange}
           />
-          <IconsGrid items={this.state.filteredItems} baseUrl={baseUrl} />
+          <IconsGrid items={filteredItems} baseUrl={baseUrl} />
         </div>
       );
     }
