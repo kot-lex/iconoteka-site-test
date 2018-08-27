@@ -34,11 +34,13 @@ class App extends Component {
       event.preventDefault();
     }
 
-    filterIcons(style = this.state.style, search = this.state.search) {
-      const Iconoteka = Object.assign({}, this.state.Iconoteka);
-      const filteredGroups = this.state.Iconoteka.items.map(group => this.filterIconGroup(group, search, style));
-      Iconoteka.items = filteredGroups;
-      this.setState({ Iconoteka });
+    filterIcons({ style } = this.state, { search } = this.state) {
+      const iconoteka = { ...this.state };
+      const filteredGroups = this.state.Iconoteka.items.map(
+        group => this.filterIconGroup(group, search, style),
+      );
+      iconoteka.items = filteredGroups;
+      this.setState({ Iconoteka: iconoteka });
     }
 
     filterIconGroup(group, search, style) {
@@ -64,7 +66,11 @@ class App extends Component {
       return (
         <div className="app">
           <Header />
-          <IconsFilter onChange={this.onSearch} style={this.state.style} onStyleChange={this.onStyleChange} />
+          <IconsFilter
+            onChange={this.onSearch}
+            style={this.state.style}
+            onStyleChange={this.onStyleChange}
+          />
           <IconsGrid iconoteka={this.state.Iconoteka} baseUrl={baseUrl} />
         </div>
       );
