@@ -1,0 +1,24 @@
+.footer {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 60px;
+}
+
+.footer:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 41px;
+  height: 1px;
+  background: #F2F2F2;
+  width: 100%;
+}
+
+.footer__copy {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: normal;
+  color: #999;
+  text-transform: lowercase;
+  margin: 84px 0 12px 0;
+}

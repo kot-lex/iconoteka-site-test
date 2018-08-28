@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import IconsFilter from './components/IconsFilter';
 import Header from './components/Header';
-import IconsGrid from './components/IconsGrid/IconsGrid';
+import IconsGrid from './components/IconsGrid';
+import Footer from './components/Footer';
 
 const Iconoteka = require('./iconoteka/iconoteka.json');
 
@@ -78,6 +79,7 @@ class App extends Component {
             onStyleChange={this.onStyleChange}
           />
           <IconsGrid items={filteredItems} baseUrl={baseUrl} />
+          <Footer />
         </div>
       );
     }
