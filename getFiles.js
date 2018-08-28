@@ -14,7 +14,6 @@ function getIconName(filename) {
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ');
 
-  console.log(filename, name);
   return name;
 }
 
