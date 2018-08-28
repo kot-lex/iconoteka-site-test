@@ -11,6 +11,12 @@ export default function Footer() {
         <br />
         all rights reserved
       </div>
+      <ul className="footer__links">
+        <li><a href="#link">Instagram</a></li>
+        <li><a href="#link">Facebook</a></li>
+        <li><a href="#link">Twitter</a></li>
+        <li><a href="#link">Tumblr</a></li>
+      </ul>
     </div>
   );
 }
