@@ -31,6 +31,10 @@
     text-decoration: none;
 }
 
+.icons-filter__control:last-child {
+  padding-right: 0;
+}
+
 .icons-filter__control a,
 .icons-filter__control a:active,
 .icons-filter__control a:visited,

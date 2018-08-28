@@ -1,3 +1,26 @@
 .header {
-    height: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__menu {
+  display: flex;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+  justify-content: space-between;
+  width: 270px;
+}
+
+
+.header__menu a,
+.header__menu a:link,
+.header__menu a:active,
+.header__menu a:visited,
+.header__menu a:hover
+{
+  color: #262626;
+  text-decoration: none;
 }
