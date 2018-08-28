@@ -1,6 +1,5 @@
 .icons-group {
     position: relative;
-    overflow: hidden;
 }
 .icons-group:before {
     content: '';
