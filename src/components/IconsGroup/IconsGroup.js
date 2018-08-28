@@ -10,6 +10,7 @@ export default function IconsGroup({ group, baseUrl }) {
       <IconCard
         key={iconItem.fileName}
         path={iconItem.path}
+        name={iconItem.name}
         fileName={iconItem.fileName}
         isHidden={iconItem.isHidden}
         baseUrl={baseUrl}

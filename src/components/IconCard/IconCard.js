@@ -6,7 +6,7 @@ export default function IconCard(props) {
   return !props.isHidden && (
   <div className="icon-card">
     <img className="icon-card__icon" src={props.baseUrl + icon} alt="icon" />
-    <span className="icon-card__title">Icon Name</span>
+    <span className="icon-card__title">{props.name}</span>
     <a className="icon-card__download" download={props.path} href={props.baseUrl + icon}>Download</a>
   </div>
   );
