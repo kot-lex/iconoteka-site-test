@@ -1,5 +1,6 @@
 .icons-group {
     position: relative;
+    padding-top: 84px;
 }
 .icons-group:before {
     content: '';
@@ -15,5 +16,5 @@
     font-weight: normal;
     color: #999;
     text-transform: lowercase;
-    margin: 84px 0 12px 0;
+    margin: 0px 0 12px 0;
 }

@@ -4,6 +4,7 @@
     flex-wrap: wrap;
     align-items: center;
     text-align: center;
+    vertical-align: top;
     width: 150px;
     height: 150px;
 }
