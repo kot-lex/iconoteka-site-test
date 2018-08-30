@@ -12,6 +12,7 @@
 .icon-card:hover {
     background: #F2F2F2;
     z-index: 3000;
+    cursor: pointer;
 }
 
 .icon-card__icon {
