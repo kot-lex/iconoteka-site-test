@@ -33,7 +33,8 @@ class App extends Component {
         search: event.target.value,
       });
 
-      this.filterIcons(this.state.style, event.target.value);
+      const { style } = this.state;
+      this.filterIcons(style, event.target.value);
     }
 
     onStyleChange(event, style) {
