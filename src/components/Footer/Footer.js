@@ -12,10 +12,10 @@ export default function Footer() {
         all rights reserved
       </div>
       <ul className="footer__links">
-        <li><a href="#link">Instagram</a></li>
-        <li><a href="#link">Facebook</a></li>
-        <li><a href="#link">Twitter</a></li>
-        <li><a href="#link">Tumblr</a></li>
+        <li><a href="https://www.instagram.com/iconoteka/">Instagram</a></li>
+        <li><a href="https://www.facebook.com/iconoteka">Facebook</a></li>
+        <li><a href="https://twitter.com/iconoteka">Twitter</a></li>
+        <li><a href="https://iconoteka.tumblr.com/">Tumblr</a></li>
       </ul>
     </div>
   );
