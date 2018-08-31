@@ -10,11 +10,14 @@ export default function IconsGrid({ items, baseUrl }) {
   );
 
   return newItems.length
-    ? newItems
+    ? <div className="icons-grid">{newItems}</div>
     : (
-      <div className="icons-group">
-        <h3 className="icons-group__title">We don&#39;t have this icon yet</h3>
-      </div>);
+      <div className="icons-grid">
+        <div className="icons-group">
+          <h3 className="icons-group__title">We don&#39;t have this icon yet</h3>
+        </div>
+      </div>
+    );
 }
 
 IconsGrid.propTypes = {
