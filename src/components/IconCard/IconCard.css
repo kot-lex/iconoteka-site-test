@@ -6,7 +6,7 @@
     text-align: center;
     vertical-align: top;
     width: 150px;
-    height: 150px;
+    height: 166px;
 }
 
 .icon-card:hover {
@@ -32,10 +32,6 @@
     box-sizing: border-box;
 }
 
-.icon-card:hover .icon-card__title {
-    color: #000;
-}
-
 .icon-card__download,
 .icon-card__download:link,
 .icon-card__download:visited,
@@ -45,6 +41,8 @@
 }
 
 .icon-card__download {
+    font-size: 13px;
+    font-weight: bold;
     color: #000;
     text-decoration: none;
     display: none;
