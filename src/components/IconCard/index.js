@@ -1,3 +1,3 @@
-import IconCard from './IconCard';
+import IconCardContainer from './IconCardContainer';
 
-export default IconCard;
+export default IconCardContainer;
