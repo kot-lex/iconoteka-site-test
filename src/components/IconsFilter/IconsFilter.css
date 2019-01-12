@@ -3,7 +3,7 @@
 }
 
 .icons-filter__search {
-    font-size: 40px;
+    font-size: 46px;
     color: #1A1A1A;
     border: none;
     outline: none;
@@ -12,18 +12,19 @@
 }
 
 .icons-filter__search::placeholder {
-    color: #E6E6E6;
+    color: #D5D4D9;
 }
 
 .icons-filter__style {
     display: flex;
+    justify-content: center;
     list-style: none;
     color: #D9D9D9;
     font-size: 13px;
+    font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 2.38px
 }
-
 .icons-filter__style li {
     padding: 0 15px;
 }
