@@ -24,12 +24,14 @@
 
 .icon-card__title {
     display: block;
-    color: #999999;
+    color: #BCBBBF;
     width: 100%;
     margin-top: 16px;
     padding: 0 10px;
     overflow: hidden;
     box-sizing: border-box;
+    font-size: 15px;
+    line-height: 18px;
 }
 
 .icon-card__download,
@@ -41,9 +43,10 @@
 }
 
 .icon-card__download {
-    font-size: 13px;
-    font-weight: bold;
-    color: #000;
+    font-size: 12px;
+    letter-spacing: 2.2px;
+    font-weight: 500;
+    color: #1A1A1A;
     text-decoration: none;
     display: none;
     bottom: -36px;
