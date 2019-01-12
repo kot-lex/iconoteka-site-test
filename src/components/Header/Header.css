@@ -6,7 +6,6 @@
 }
 
 .header__menu {
-  font-family: 'Roboto', sans-serif;
   display: flex;
   padding: 0;
   list-style: none;
@@ -22,6 +21,6 @@
 .header__menu a:visited,
 .header__menu a:hover
 {
-  color: #262626;
+  color: #7C7C7D;
   text-decoration: none;
 }
