@@ -9,6 +9,7 @@
     outline: none;
     caret-color: #FFB2C6;
     width: 100%;
+    background: #F5F5F7;
 }
 
 .icons-filter__search::placeholder {

@@ -11,6 +11,13 @@
     background: #F2F2F2;
     width: 100%;
 }
+
+.icons-group:first-child {
+    padding-top: 40px;
+}
+.icons-group:first-child:before {
+    display: none;
+}
 .icons-group__title {
     font-size: 20px;
     font-weight: normal;

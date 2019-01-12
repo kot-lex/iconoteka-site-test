@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import IconsFilter from './components/IconsFilter';
 import Header from './components/Header';
 import IconsGrid from './components/IconsGrid';
 import Footer from './components/Footer';
@@ -73,9 +72,8 @@ class App extends Component {
       const { style, filteredItems } = this.state;
       return (
         <div className="app">
-          <Header />
-          <IconsFilter
-            onChange={this.onSearch}
+          <Header           
+            onSearch={this.onSearch}
             style={style}
             onStyleChange={this.onStyleChange}
           />
