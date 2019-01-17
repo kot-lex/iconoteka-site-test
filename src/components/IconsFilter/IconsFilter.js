@@ -25,9 +25,6 @@ export default class IconsFilter extends React.Component {
         />
 
         <ul className="icons-filter__style">
-          <li>
-            Style
-          </li>
           <li className={
             style === 'fill'
               ? 'icons-filter__control icons-filter__control_active'
