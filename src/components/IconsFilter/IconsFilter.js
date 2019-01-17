@@ -32,6 +32,12 @@ export default class IconsFilter extends React.Component {
           }
           >
             <a href="#fill" onClick={event => onStyleChange(event, 'fill')}>Fill</a>
+            <ul className="icons-filter__dropdown">
+              <li>Bold</li>
+              <li>Regular</li>
+              <li>Medium</li>
+              <li>Light</li>
+            </ul>
           </li>
           <li className={
             style === 'stroke'
@@ -40,6 +46,10 @@ export default class IconsFilter extends React.Component {
           }
           >
             <a href="#stroke" onClick={event => onStyleChange(event, 'stroke')}>Stroke</a>
+            <ul className="icons-filter__dropdown">
+              <li>Stroke</li>
+              <li>Fill</li>
+            </ul>
           </li>
         </ul>
       </div>
