@@ -10,10 +10,13 @@
 }
 
 .icon-card:hover {
-    background: #F2F2F2;
+    padding-bottom: 36px;
+    margin-bottom: -36px;
+    box-shadow: 0 0 1px 1px rgba(0,0,0,0.04), 0 3px 6px 0 rgba(6,0,0,0.08);
     z-index: 3000;
     cursor: pointer;
 }
+
 
 .icon-card__icon {
     width: 48px;
@@ -24,7 +27,7 @@
 
 .icon-card__title {
     display: block;
-    color: #BCBBBF;
+    color: #BCBBBF; 
     width: 100%;
     margin-top: 16px;
     padding: 0 10px;
@@ -32,6 +35,10 @@
     box-sizing: border-box;
     font-size: 15px;
     line-height: 18px;
+}
+
+.icon-card:hover .icon-card__title {
+    color: #727273;
 }
 
 .icon-card__download,
@@ -49,12 +56,11 @@
     color: #1A1A1A;
     text-decoration: none;
     display: none;
-    bottom: -36px;
+    bottom: 0;
     position: absolute;
     text-transform: uppercase;
     height: 36px;
     width: 100%;
-    background: #F2F2F2;
 }
 
 
