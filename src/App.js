@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import './common-styles/index.scss';
 import './App.css';
+
 import Header from './components/Header';
 import IconsGrid from './components/IconsGrid';
 import Footer from './components/Footer';
