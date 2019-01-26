@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import './common-styles/index.scss';
-import './App.css';
-
-import Header from './components/Header';
+import './App.scss';
 import IconsGrid from './components/IconsGrid';
 import Footer from './components/Footer';
+import Hero from './components/Hero';
 
 const Iconoteka = require('./iconoteka/iconoteka.json');
 
@@ -60,10 +58,8 @@ class App extends Component {
         // Filter by search string
         .filter(iconItem => iconItem.path.includes(search.toLowerCase()))
         // Filter by style
-        .filter((iconItem) => {
-          return (style === 'fill' && iconItem.isFill)
-          || (style === 'stroke' && iconItem.isStroke);
-        });
+        .filter(iconItem => (style === 'fill' && iconItem.isFill)
+          || (style === 'stroke' && iconItem.isStroke));
 
       return Object.assign({}, group, {
         items,
@@ -74,12 +70,11 @@ class App extends Component {
       const { style, filteredItems } = this.state;
       return (
         <div className="app">
-          <Header           
-            onSearch={this.onSearch}
-            style={style}
-            onStyleChange={this.onStyleChange}
-          />
-          <IconsGrid items={filteredItems} baseUrl={baseUrl} />
+          <Hero onSearch={this.onSearch} style={style} onStyleChange={this.onStyleChange} />
+
+          <main className="app__content">
+            <IconsGrid items={filteredItems} baseUrl={baseUrl} />
+          </main>
           <Footer />
         </div>
       );

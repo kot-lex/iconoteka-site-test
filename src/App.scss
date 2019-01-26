@@ -1,0 +1,15 @@
+@import "common-styles/index.scss";
+
+.app {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: $topbar-height;
+  min-height: 100vh;
+
+  &__content {
+    @include layout;
+    flex: 1;
+    justify-content: stretch;
+  }
+}
