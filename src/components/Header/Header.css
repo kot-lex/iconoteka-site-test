@@ -1,3 +1,14 @@
+.header-wrapper {
+  position: fixed;
+  z-index: 3;
+  left: 0;
+  right: 0;
+  top: 0;
+  background-color: #F5F5F7;
+  padding: 0 100px 40px;
+  height: 217px;
+}
+
 .header {
   height: 100px;
   display: flex;
@@ -6,7 +17,6 @@
 }
 
 .header__menu {
-  font-family: 'Roboto', sans-serif;
   display: flex;
   padding: 0;
   list-style: none;
@@ -22,6 +32,6 @@
 .header__menu a:visited,
 .header__menu a:hover
 {
-  color: #262626;
+  color: #7C7C7D;
   text-decoration: none;
 }

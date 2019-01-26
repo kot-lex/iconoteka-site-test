@@ -1,5 +1,6 @@
 .icons-group {
     position: relative;
+    z-index: 2;
     padding-top: 84px;
 }
 .icons-group:before {
@@ -11,10 +12,14 @@
     background: #F2F2F2;
     width: 100%;
 }
+
+.icons-group:first-child:before {
+    display: none;
+}
 .icons-group__title {
     font-size: 20px;
     font-weight: normal;
-    color: #999;
+    color: #BCBBBF;
     text-transform: lowercase;
     margin: 0px 0 12px 0;
 }

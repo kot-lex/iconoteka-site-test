@@ -3,7 +3,7 @@
   overflow: hidden;
   margin-bottom: 60px;
   display: flex;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 26px;
 }
 
@@ -25,7 +25,7 @@
 
 .footer__copy {
   font-weight: normal;
-  color: #999;
+  color: #BCBBBF;
   text-transform: lowercase;
   width: 100%;
 }
@@ -45,9 +45,7 @@
 .footer__links a:active,
 .footer__links a:visited
 {
-  color: #000;
+  color: #727273;
   text-decoration: none;
-  font-size: 16px;
   text-transform: lowercase;
-
 }
