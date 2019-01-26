@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './IconsGrid.css';
+import './IconsGrid.scss';
 import IconsGroup from '../IconsGroup';
 
 export default function IconsGrid({ items, baseUrl }) {

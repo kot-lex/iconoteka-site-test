@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import IconCard from '../IconCard';
-import './IconsGroup.css';
+import './IconsGroup.scss';
 
 export default function IconsGroup({ group, baseUrl }) {
   const images = group.items
@@ -20,7 +20,9 @@ export default function IconsGroup({ group, baseUrl }) {
   return (
     <div className="icons-group">
       <h3 className="icons-group__title">{group.name}</h3>
-      {images}
+      <div className="icons-group__content">
+       {images}
+      </div>
     </div>
   );
 }
