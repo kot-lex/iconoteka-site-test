@@ -1,12 +1,18 @@
 import React from 'react';
 import * as PropTypes from 'prop-types';
 import Header from '../Header';
+import IconsFilter from '../IconsFilter';
 
 export default function Hero(props) {
   return (
     <div className="hero">
       <Header
         onSearch={props.onSearch}
+        style={props.style}
+        onStyleChange={props.onStyleChange}
+      />
+      <IconsFilter
+        onChange={props.onSearch}
         style={props.style}
         onStyleChange={props.onStyleChange}
       />

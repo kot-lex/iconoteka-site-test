@@ -1,0 +1,22 @@
+@import "../../common-styles/index.scss";
+
+.header {
+  @include layout;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+
+  &__menu {
+    display: flex;
+    padding: 0;
+    width: 194px;
+    list-style: none;
+    text-align: center;
+    justify-content: space-between;
+    align-items: center;
+
+    a {
+      color: #7C7C7D;
+    }
+  }
+}
