@@ -13,7 +13,7 @@ export default class IconsFilter extends React.Component {
   }
 
   render() {
-    const { onChange, style, onStyleChange } = this.props;
+    // const { onChange, style, onStyleChange } = this.props;
     // return (
     //   <div className="icons-filter">
     //     <input
@@ -63,7 +63,7 @@ export default class IconsFilter extends React.Component {
 
       <ul className="icons-filter__style">
         <li className="icons-filter__control">
-          <a className="icons-filter__style-item-name" href="#">Regular</a>
+          <a className="icons-filter__style-item-name" href="#regular">Regular</a>
           <ul className="icons-filter__dropdown">
             <li>Bold</li>
             <li>Regular</li>
@@ -73,7 +73,7 @@ export default class IconsFilter extends React.Component {
         </li>
         <li className="icons-filter__control">
           <div className="icons-filter__control-inner">
-            <a className="icons-filter__style-item-name" href="#">Stroke</a>
+            <a className="icons-filter__style-item-name" href="#stroke">Stroke</a>
             <ul className="icons-filter__dropdown">
               <li>Stroke</li>
               <li>Fill</li>
