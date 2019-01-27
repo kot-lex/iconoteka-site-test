@@ -1,5 +1,7 @@
 import React from 'react';
 import * as PropTypes from 'prop-types';
+import './Hero.scss';
+
 import Header from '../Header';
 import IconsFilter from '../IconsFilter';
 
