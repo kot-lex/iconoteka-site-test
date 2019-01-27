@@ -13,7 +13,7 @@ export default class IconsFilter extends React.Component {
   }
 
   render() {
-    // const { onChange, style, onStyleChange } = this.props;
+    const { onChange } = this.props;
     // return (
     //   <div className="icons-filter">
     //     <input
@@ -55,34 +55,41 @@ export default class IconsFilter extends React.Component {
     //   </div>
     // );
 
-    return (<div className="icons-filter">
+    return (
+      <div className="icons-filter">
 
-      <div className="icons-filter__search-wrap">
-        <input className="icons-filter__search" placeholder="search icon" ref={this.inputRef} />
-      </div>
+        <div className="icons-filter__search-wrap">
+          <input
+            className="icons-filter__search"
+            placeholder="search icon"
+            ref={this.inputRef}
+            onChange={onChange}
+            onKeyUp={onChange}
+          />
+        </div>
 
-      <ul className="icons-filter__style">
-        <li className="icons-filter__control">
-          <a className="icons-filter__style-item-name" href="#regular">Regular</a>
-          <ul className="icons-filter__dropdown">
-            <li>Bold</li>
-            <li>Regular</li>
-            <li>Medium</li>
-            <li>Light</li>
-          </ul>
-        </li>
-        <li className="icons-filter__control">
-          <div className="icons-filter__control-inner">
-            <a className="icons-filter__style-item-name" href="#stroke">Stroke</a>
+        <ul className="icons-filter__style">
+          <li className="icons-filter__control">
+            <a className="icons-filter__style-item-name" href="#regular">Regular</a>
             <ul className="icons-filter__dropdown">
-              <li>Stroke</li>
-              <li>Fill</li>
+              <li>Bold</li>
+              <li>Regular</li>
+              <li>Medium</li>
+              <li>Light</li>
             </ul>
-          </div>
-        </li>
-      </ul>
+          </li>
+          <li className="icons-filter__control">
+            <div className="icons-filter__control-inner">
+              <a className="icons-filter__style-item-name" href="#stroke">Stroke</a>
+              <ul className="icons-filter__dropdown">
+                <li>Stroke</li>
+                <li>Fill</li>
+              </ul>
+            </div>
+          </li>
+        </ul>
 
-    </div>)
+      </div>);
   }
 }
 
