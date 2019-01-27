@@ -1,22 +1,23 @@
 import React from 'react';
 
-import './Footer.css';
+import './Footer.scss';
 
 export default function Footer() {
   return (
-
-    <div className="footer">
+    <footer className="footer">
       <div className="footer__copy">
-        copyright 2018 oleg turbaba
-        <br />
-        all rights reserved
+        <p>copyright 2018 oleg turbaba <br />all rights reserved</p>
       </div>
-      <ul className="footer__links">
-        <li><a href="https://www.instagram.com/iconoteka/">Instagram</a></li>
-        <li><a href="https://www.facebook.com/iconoteka">Facebook</a></li>
-        <li><a href="https://twitter.com/iconoteka">Twitter</a></li>
-        <li><a href="https://iconoteka.tumblr.com/">Tumblr</a></li>
-      </ul>
-    </div>
+      <div className="footer__links">
+        <div className="footer__links-box">
+          <a href="https://www.instagram.com/iconoteka/">Instagram</a>
+          <a href="https://twitter.com/iconoteka">Twitter</a>
+        </div>
+        <div className="footer__links-box">
+          <a href="https://www.facebook.com/iconoteka">Facebook</a>
+          <a href="https://iconoteka.tumblr.com/">Tumblr</a>
+        </div>
+      </div>
+    </footer>
   );
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './IconCard.css';
+import './IconCard.scss';
 
 
 const IconCard = (props) => {
@@ -13,9 +13,12 @@ const IconCard = (props) => {
 
   return !isHidden && (
   <div className="icon-card" onClick={onClick}>
-    <img className="icon-card__icon" src={baseUrl + icon} alt="icon" />
-    <span className="icon-card__title">{name}</span>
-    <a className="icon-card__download" ref={forwardedRef} download={path} href={iconAddress}>Download</a>
+
+    <div className="icon-card__content">
+      <img className="icon-card__icon" src={baseUrl + icon} alt="icon" />
+      <span className="icon-card__title">{name}</span>
+      <a className="icon-card__download" ref={forwardedRef} download={path} href={iconAddress}>Download</a>
+    </div>
   </div>
   );
 };
