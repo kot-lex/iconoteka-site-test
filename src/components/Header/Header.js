@@ -7,7 +7,7 @@ export default function Header() {
     <header className="header">
       <img src={logo} className="header__logo" alt="iconoteka" />
       <ul className="header__menu">
-        <li><a href="#link">about</a></li>
+        <li><a href="https://readymag.com/turbaba/1296248/">about</a></li>
         <li><a href="#link">support project</a></li>
       </ul>
     </header>
