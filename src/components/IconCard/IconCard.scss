@@ -20,6 +20,7 @@
     margin: 0 auto;
   }
   &__title {
+    display: block;
     height: 32px;
     overflow: hidden;
     color: #BCBBBF;
@@ -31,7 +32,7 @@
   &__download {
     display: none;
     position: absolute;
-    bottom: 15px;
+    bottom: 14px;
     width: 100%;
     color: #1A1A1A;
     font-size: 12px;
