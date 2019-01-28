@@ -23,7 +23,6 @@
 // Layout
 @mixin layout {
   width: 100%;
-  max-width: $app-max-width;
   padding-left: $app-padding;
   padding-right: $app-padding;
 }

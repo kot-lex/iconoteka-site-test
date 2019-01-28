@@ -9,6 +9,7 @@
 
   &__content {
     @include layout;
+    max-width: 1400px;
     flex: 1;
     justify-content: stretch;
   }
