@@ -17,6 +17,12 @@
     height: 67px;
 
     &::placeholder {
+      color: #BCBBBF;
+    }
+    &:hover::placeholder {
+      color: #727273;
+    }
+    &:focus::placeholder {
       color: #D5D4D9;
     }
   }
