@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './IconsFilter.scss';
+import Dropdown from '../Dropdown';
 
 export default class IconsFilter extends React.Component {
   constructor(props) {
@@ -14,47 +15,7 @@ export default class IconsFilter extends React.Component {
 
   render() {
     const { onChange } = this.props;
-    // return (
-    //   <div className="icons-filter">
-    //     <input
-    //       className="icons-filter__search"
-    //       onChange={onChange}
-    //       onKeyUp={onChange}
-    //       placeholder="Search"
-    //       ref={this.inputRef}
-    //     />
-    //
-    //     <ul className="icons-filter__style">
-    //       <li className={
-    //         style === 'fill'
-    //           ? 'icons-filter__control icons-filter__control_active'
-    //           : 'icons-filter__control'
-    //       }
-    //       >
-    //         <a href="#fill" onClick={event => onStyleChange(event, 'fill')}>Fill</a>
-    //         <ul className="icons-filter__dropdown">
-    //           <li>Bold</li>
-    //           <li>Regular</li>
-    //           <li>Medium</li>
-    //           <li>Light</li>
-    //         </ul>
-    //       </li>
-    //       <li className={
-    //         style === 'stroke'
-    //           ? 'icons-filter__control icons-filter__control_active'
-    //           : 'icons-filter__control'
-    //       }
-    //       >
-    //         <a href="#stroke" onClick={event => onStyleChange(event, 'stroke')}>Stroke</a>
-    //         <ul className="icons-filter__dropdown">
-    //           <li>Stroke</li>
-    //           <li>Fill</li>
-    //         </ul>
-    //       </li>
-    //     </ul>
-    //   </div>
-    // );
-
+    
     return (
       <div className="icons-filter">
 
@@ -69,23 +30,44 @@ export default class IconsFilter extends React.Component {
         </div>
 
         <ul className="icons-filter__style">
-          <li className="icons-filter__control">
-            <a className="icons-filter__style-item-name" href="#regular">Regular</a>
-            <ul className="icons-filter__dropdown">
-              <li>Bold</li>
-              <li>Regular</li>
-              <li>Medium</li>
-              <li>Light</li>
-            </ul>
+        <li>
+          <Dropdown
+            onChange={item => console.log(item)}
+            items={[
+              {
+                key: 'bold',
+                title: 'Bold',
+              },
+              {
+                key: 'regular',
+                title: 'Regular',
+                selected: true
+              },
+              {
+                key: 'medium',
+                title: 'Medium',
+              },
+              {
+                key: 'light',
+                title: 'Light',
+              },
+            ]}
+          />
           </li>
-          <li className="icons-filter__control">
-            <div className="icons-filter__control-inner">
-              <a className="icons-filter__style-item-name" href="#stroke">Stroke</a>
-              <ul className="icons-filter__dropdown">
-                <li>Stroke</li>
-                <li>Fill</li>
-              </ul>
-            </div>
+          <li>
+            <Dropdown
+              onChange={item => this.props.onStyleChange(item)}
+              items={[
+                {
+                  key: 'stroke',
+                  title: 'Stroke',
+                },
+                {
+                  key: 'fill',
+                  title: 'Fill',
+                }
+              ]}
+            />
           </li>
         </ul>
 

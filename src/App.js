@@ -36,10 +36,10 @@ class App extends Component {
       this.filterIcons(style, event.target.value);
     }
 
-    onStyleChange(event, style) {
-      event.preventDefault();
-      this.setState({ style });
-      this.filterIcons(style);
+    onStyleChange(style) {
+      
+      this.setState({ style: style.key });
+      this.filterIcons(style.key);
     }
 
     filterIcons(style = 'fill', search = '') {
