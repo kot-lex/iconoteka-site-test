@@ -8,7 +8,7 @@ import Footer from './components/Footer';
 import Hero from './components/Hero';
 import AppContext from './AppContext';
 
-const Iconoteka = require('./iconoteka/iconoteka.json');
+const Iconoteka = require('iconoteka-lib-test/iconoteka.json');
 
 const baseUrl = process.env.REACT_APP_BASE_URL || 'http://localhost:3000';
 
