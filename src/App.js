@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Iconoteka from 'iconoteka-lib-test/iconoteka.json';
 
 import isPredicate from './utils/isPredicate';
 
@@ -7,8 +8,6 @@ import IconsGrid from './components/IconsGrid';
 import Footer from './components/Footer';
 import Hero from './components/Hero';
 import AppContext from './AppContext';
-
-const Iconoteka = require('iconoteka-lib-test/iconoteka.json');
 
 const baseUrl = process.env.REACT_APP_BASE_URL || 'http://localhost:3000';
 
