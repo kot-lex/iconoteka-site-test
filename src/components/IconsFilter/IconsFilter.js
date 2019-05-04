@@ -15,7 +15,13 @@ export default class IconsFilter extends React.Component {
   }
 
   render() {
-    const { onChange } = this.props;
+    const {
+      onChange,
+      onStyleChange,
+      onThicknessChange,
+      style,
+      thickness,
+    } = this.props;
 
     return (
 
@@ -36,7 +42,7 @@ export default class IconsFilter extends React.Component {
             <ul className="icons-filter__style">
               <li>
                 <Dropdown
-                  onChange={item => console.log(item)}
+                  onChange={item => onThicknessChange(item)}
                   name="thickness"
                   openDropdown={openDropdown}
                   onChangeOpenDropdownState={changeOpenDropdownState}
@@ -44,19 +50,22 @@ export default class IconsFilter extends React.Component {
                     {
                       key: 'bold',
                       title: 'Bold',
+                      selected: thickness === 'bold',
                     },
                     {
                       key: 'regular',
                       title: 'Regular',
-                      selected: true,
+                      selected: thickness === 'regular',
                     },
                     {
                       key: 'medium',
                       title: 'Medium',
+                      selected: thickness === 'medium',
                     },
                     {
                       key: 'light',
                       title: 'Light',
+                      selected: thickness === 'light',
                     },
                   ]}
                 />
@@ -64,7 +73,7 @@ export default class IconsFilter extends React.Component {
               <li>
                 <Dropdown
                   key="test"
-                  onChange={item => this.props.onStyleChange(item)}
+                  onChange={item => onStyleChange(item)}
                   openDropdown={openDropdown}
                   onChangeOpenDropdownState={changeOpenDropdownState}
                   name="style"
@@ -72,10 +81,12 @@ export default class IconsFilter extends React.Component {
                     {
                       key: 'stroke',
                       title: 'Stroke',
+                      selected: style === 'stroke',
                     },
                     {
                       key: 'fill',
                       title: 'Fill',
+                      selected: style === 'fill',
                     },
                   ]}
                 />
@@ -92,5 +103,7 @@ export default class IconsFilter extends React.Component {
 IconsFilter.propTypes = {
   onChange: PropTypes.func.isRequired,
   onStyleChange: PropTypes.func.isRequired,
+  onThicknessChange: PropTypes.func.isRequired,
   style: PropTypes.oneOf(['fill', 'stroke']).isRequired,
+  thickness: PropTypes.oneOf(['bold', 'medium', 'regular', 'light']).isRequired,
 };

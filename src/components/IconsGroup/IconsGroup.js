@@ -21,7 +21,7 @@ export default function IconsGroup({ group, baseUrl }) {
     <div className="icons-group">
       <h3 className="icons-group__title">{group.name}</h3>
       <div className="icons-group__content">
-       {images}
+        {images}
       </div>
     </div>
   );

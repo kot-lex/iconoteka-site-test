@@ -39,7 +39,10 @@ async function getFiles(dir) {
     return Promise.resolve({
       isFill: style === 'f' || style === 'a',
       isStroke: style === 's' || style === 'a',
-      thickness: thicknesses[thickness],
+      isBold: thickness === 'b' || thickness === 'a',
+      isMedium: thickness === 'm' || thickness === 'a',
+      isRegular: thickness === 'r' || thickness === 'a',
+      isLight: thickness === 'l' || thickness === 'a',
       name: getIconName(item),
       fileName: item,
       path: `${dirName}/${item}`,

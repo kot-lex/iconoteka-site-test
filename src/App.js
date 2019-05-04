@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+
+import isPredicate from './utils/isPredicate';
+
 import './App.scss';
 import IconsGrid from './components/IconsGrid';
 import Footer from './components/Footer';
@@ -9,18 +12,19 @@ const Iconoteka = require('./iconoteka/iconoteka.json');
 
 const baseUrl = process.env.REACT_APP_BASE_URL || 'http://localhost:3000';
 
-
 class App extends Component {
     state = {
       Iconoteka,
       filteredItems: Iconoteka.items,
       style: 'fill',
+      thickness: 'regular',
       search: '',
     };
 
     constructor(props) {
       super(props);
       this.onStyleChange = this.onStyleChange.bind(this);
+      this.onThicknessChange = this.onThicknessChange.bind(this);
       this.onSearch = this.onSearch.bind(this);
       this.changeOpenDropdownState = this.changeOpenDropdownState.bind(this);
     }
@@ -34,20 +38,29 @@ class App extends Component {
         search: event.target.value,
       });
 
-      const { style } = this.state;
-      this.filterIcons(style, event.target.value);
+      const { style, thickness } = this.state;
+      this.filterIcons(event.target.value, style, thickness);
     }
 
     onStyleChange(style) {
       this.setState({ style: style.key });
-      this.filterIcons(style.key);
+
+      const { search, thickness } = this.state;
+      this.filterIcons(search, style.key, thickness);
     }
 
-    filterIcons(style = 'fill', search = '') {
+    onThicknessChange(thickness) {
+      this.setState({ thickness: thickness.key });
+
+      const { search, style } = this.state;
+      this.filterIcons(search, style, thickness.key);
+    }
+
+    filterIcons(search = '', style = 'fill', thickness = 'regular') {
       const { Iconoteka: iconoteka } = this.state;
       const filteredGroups = iconoteka.items
         .map(
-          group => this.filterIconGroup(group, search, style),
+          group => this.filterIconGroup(group, search, style, thickness),
         )
         .filter(group => group.items && group.items.length);
 
@@ -61,13 +74,14 @@ class App extends Component {
     }
 
     /* eslint-disable */
-    filterIconGroup(group, search, style) {
+    filterIconGroup(group, search, style, thickness) {
       const items = group.items && group.items
         // Filter by search string
         .filter(iconItem => iconItem.path.includes(search.toLowerCase()))
         // Filter by style
-        .filter(iconItem => (style === 'fill' && iconItem.isFill)
-          || (style === 'stroke' && iconItem.isStroke));
+        .filter(iconItem => isPredicate(iconItem, style))
+        // Filter by thickness
+        .filter(iconItem => isPredicate(iconItem, thickness));
 
       return Object.assign({}, group, {
         items,
@@ -76,7 +90,7 @@ class App extends Component {
     /* eslint-enable */
 
     render() {
-      const { style, filteredItems } = this.state;
+      const { style, thickness, filteredItems } = this.state;
       return (
         <AppContext.Provider value={{
           openDropdown: this.state.openDropdown,
@@ -84,7 +98,13 @@ class App extends Component {
         }}
         >
           <div className="app">
-            <Hero onSearch={this.onSearch} style={style} onStyleChange={this.onStyleChange} />
+            <Hero
+              onSearch={this.onSearch}
+              onStyleChange={this.onStyleChange}
+              onThicknessChange={this.onThicknessChange}
+              style={style}
+              thickness={thickness}
+            />
 
             <main className="app__content">
               <IconsGrid items={filteredItems} baseUrl={baseUrl} />
