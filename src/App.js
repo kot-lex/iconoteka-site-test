@@ -3,6 +3,7 @@ import './App.scss';
 import IconsGrid from './components/IconsGrid';
 import Footer from './components/Footer';
 import Hero from './components/Hero';
+import AppContext from './AppContext';
 
 const Iconoteka = require('./iconoteka/iconoteka.json');
 
@@ -21,6 +22,7 @@ class App extends Component {
       super(props);
       this.onStyleChange = this.onStyleChange.bind(this);
       this.onSearch = this.onSearch.bind(this);
+      this.changeOpenDropdownState = this.changeOpenDropdownState.bind(this);
     }
 
     componentDidMount() {
@@ -37,7 +39,6 @@ class App extends Component {
     }
 
     onStyleChange(style) {
-      
       this.setState({ style: style.key });
       this.filterIcons(style.key);
     }
@@ -53,6 +54,13 @@ class App extends Component {
       this.setState({ filteredItems: filteredGroups });
     }
 
+    changeOpenDropdownState(name, isOpen) {
+      this.setState({
+        openDropdown: isOpen ? name : null,
+      });
+    }
+
+    /* eslint-disable */
     filterIconGroup(group, search, style) {
       const items = group.items && group.items
         // Filter by search string
@@ -65,18 +73,25 @@ class App extends Component {
         items,
       });
     }
+    /* eslint-enable */
 
     render() {
       const { style, filteredItems } = this.state;
       return (
-        <div className="app">
-          <Hero onSearch={this.onSearch} style={style} onStyleChange={this.onStyleChange} />
+        <AppContext.Provider value={{
+          openDropdown: this.state.openDropdown,
+          changeOpenDropdownState: this.changeOpenDropdownState,
+        }}
+        >
+          <div className="app">
+            <Hero onSearch={this.onSearch} style={style} onStyleChange={this.onStyleChange} />
 
-          <main className="app__content">
-            <IconsGrid items={filteredItems} baseUrl={baseUrl} />
-          </main>
-          <Footer />
-        </div>
+            <main className="app__content">
+              <IconsGrid items={filteredItems} baseUrl={baseUrl} />
+            </main>
+            <Footer />
+          </div>
+        </AppContext.Provider>
       );
     }
 }

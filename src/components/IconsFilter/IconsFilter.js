@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './IconsFilter.scss';
 import Dropdown from '../Dropdown';
+import AppContext from '../../AppContext';
 
 export default class IconsFilter extends React.Component {
   constructor(props) {
@@ -15,63 +16,76 @@ export default class IconsFilter extends React.Component {
 
   render() {
     const { onChange } = this.props;
-    
+
     return (
-      <div className="icons-filter">
 
-        <div className="icons-filter__search-wrap">
-          <input
-            className="icons-filter__search"
-            placeholder="search icon"
-            ref={this.inputRef}
-            onChange={onChange}
-            onKeyUp={onChange}
-          />
-        </div>
+      <AppContext.Consumer>
+        {({ openDropdown, changeOpenDropdownState }) => (
+          <div className="icons-filter">
 
-        <ul className="icons-filter__style">
-        <li>
-          <Dropdown
-            onChange={item => console.log(item)}
-            items={[
-              {
-                key: 'bold',
-                title: 'Bold',
-              },
-              {
-                key: 'regular',
-                title: 'Regular',
-                selected: true
-              },
-              {
-                key: 'medium',
-                title: 'Medium',
-              },
-              {
-                key: 'light',
-                title: 'Light',
-              },
-            ]}
-          />
-          </li>
-          <li>
-            <Dropdown
-              onChange={item => this.props.onStyleChange(item)}
-              items={[
-                {
-                  key: 'stroke',
-                  title: 'Stroke',
-                },
-                {
-                  key: 'fill',
-                  title: 'Fill',
-                }
-              ]}
-            />
-          </li>
-        </ul>
+            <div className="icons-filter__search-wrap">
+              <input
+                className="icons-filter__search"
+                placeholder="search icon"
+                ref={this.inputRef}
+                onChange={onChange}
+                onKeyUp={onChange}
+              />
+            </div>
 
-      </div>);
+            <ul className="icons-filter__style">
+              <li>
+                <Dropdown
+                  onChange={item => console.log(item)}
+                  name="thickness"
+                  openDropdown={openDropdown}
+                  onChangeOpenDropdownState={changeOpenDropdownState}
+                  items={[
+                    {
+                      key: 'bold',
+                      title: 'Bold',
+                    },
+                    {
+                      key: 'regular',
+                      title: 'Regular',
+                      selected: true,
+                    },
+                    {
+                      key: 'medium',
+                      title: 'Medium',
+                    },
+                    {
+                      key: 'light',
+                      title: 'Light',
+                    },
+                  ]}
+                />
+              </li>
+              <li>
+                <Dropdown
+                  key="test"
+                  onChange={item => this.props.onStyleChange(item)}
+                  openDropdown={openDropdown}
+                  onChangeOpenDropdownState={changeOpenDropdownState}
+                  name="style"
+                  items={[
+                    {
+                      key: 'stroke',
+                      title: 'Stroke',
+                    },
+                    {
+                      key: 'fill',
+                      title: 'Fill',
+                    },
+                  ]}
+                />
+              </li>
+            </ul>
+
+          </div>
+        )}
+      </AppContext.Consumer>
+    );
   }
 }
 
