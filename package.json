@@ -18,8 +18,7 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "copyIconoteka": "cpx './node_modules/iconoteka-lib-test/iconoteka/**' ./src/iconoteka/ --clean",
-    "buildCatalogue": "node ./getFiles.js",
-    "postinstall": "npm run copyIconoteka && npm run buildCatalogue"
+    "postinstall": "npm run copyIconoteka"
   },
   "devDependencies": {
     "cpx": "^1.5.0",
