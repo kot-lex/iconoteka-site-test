@@ -53,14 +53,14 @@ export default class IconsFilter extends React.Component {
                       selected: thickness === 'bold',
                     },
                     {
-                      key: 'regular',
-                      title: 'Regular',
-                      selected: thickness === 'regular',
-                    },
-                    {
                       key: 'medium',
                       title: 'Medium',
                       selected: thickness === 'medium',
+                    },
+                    {
+                      key: 'regular',
+                      title: 'Regular',
+                      selected: thickness === 'regular',
                     },
                     {
                       key: 'light',
