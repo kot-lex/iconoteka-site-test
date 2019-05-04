@@ -27,10 +27,11 @@ async function getFiles(dir) {
       return getFiles(`${dir}/${item}`);
     }
 
-    const [category, style] = item.split('.svg')[0].split('_').slice(-2);
+    const [thickness, style] = item.split('.svg')[0].split('_').slice(-2);
 
-    const categories = {
+    const thicknesses = {
       b: 'bold',
+      m: 'medium',
       r: 'regular',
       l: 'light',
     };
@@ -38,7 +39,7 @@ async function getFiles(dir) {
     return Promise.resolve({
       isFill: style === 'f' || style === 'b',
       isStroke: style === 's' || style === 'b',
-      category: categories[category],
+      thickness: thicknesses[thickness],
       name: getIconName(item),
       fileName: item,
       path: `${dirName}/${item}`,
