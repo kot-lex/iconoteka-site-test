@@ -5,17 +5,19 @@ import './IconCard.scss';
 
 const IconCard = (props) => {
   const {
-    isHidden, baseUrl, name, path, forwardedRef, onClick,
+    isHidden, baseUrl, name, path, forwardedRef, onClick, isVisible,
   } = props;
     // eslint-disable-next-line
     const icon = require(`../../iconoteka/${path}`);
   const iconAddress = baseUrl + icon;
 
   return !isHidden && (
-  <div className="icon-card" onClick={onClick}>
+  <div className="icon-card" onClick={onClick} ref={props.innerRef}>
 
     <div className="icon-card__content">
-      <img className="icon-card__icon" src={baseUrl + icon} alt="icon" />
+      {
+        isVisible && <img className="icon-card__icon" src={baseUrl + icon} alt="icon" />
+      }
       <span className="icon-card__title">{name}</span>
       <a className="icon-card__download" ref={forwardedRef} download={path} href={iconAddress}>Download</a>
     </div>
@@ -25,6 +27,7 @@ const IconCard = (props) => {
 
 IconCard.propTypes = {
   isHidden: PropTypes.bool,
+  isVisible: PropTypes.bool,
   baseUrl: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   path: PropTypes.string.isRequired,
@@ -33,6 +36,7 @@ IconCard.propTypes = {
 
 IconCard.defaultProps = {
   isHidden: false,
+  isVisible: false,
 };
 
 export default React.forwardRef((props, ref) => <IconCard {...props} forwardedRef={ref} />);
