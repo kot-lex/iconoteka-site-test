@@ -44,6 +44,10 @@
 
     @include mobile {
       justify-content: space-around;
+      &::after {
+        content: '';
+        width: 150px;
+      }
     }
   }
 }
