@@ -5,6 +5,12 @@
   display: flex;
   justify-content: space-between;
 
+  @include mobile {
+    flex-wrap: wrap-reverse;
+    justify-content: left;
+    margin-top: -31px;
+  }
+
   &__search {
     font-size: 46px;
     color: #1A1A1A;
@@ -15,6 +21,10 @@
     max-width: 739px;
     background: #F5F5F7;
     height: 67px;
+
+    @include mobile {
+      font-size: 40px;
+    }
 
     &::placeholder {
       color: #BCBBBF;
@@ -42,10 +52,19 @@
     letter-spacing: 2.2px;
     line-height: 27px;
 
+    @include mobile {
+      min-width: 185px;
+      margin: 0;
+    }
+
     li {
       padding-top: 0;
       padding-bottom: 0;
       padding-left: 15px;
+
+      @include mobile {
+        padding-left: 0;
+      }
     }
   }
   &__control {
