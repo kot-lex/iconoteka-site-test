@@ -8,7 +8,7 @@
   @include mobile {
     flex-wrap: wrap-reverse;
     justify-content: left;
-    margin-top: -31px;
+    margin-top: -5px;
   }
 
   &__search {
@@ -35,6 +35,10 @@
     &:focus::placeholder {
       color: #D5D4D9;
     }
+  }
+
+  &__search-wrap {
+    margin-top: 9px;
   }
 
   &__style {
