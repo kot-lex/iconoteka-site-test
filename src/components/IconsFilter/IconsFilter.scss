@@ -24,6 +24,7 @@
 
     @include mobile {
       font-size: 40px;
+      padding-left: 0;
     }
 
     &::placeholder {
