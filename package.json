@@ -6,7 +6,7 @@
   "dependencies": {
     "fs-extra": "^6.0.1",
     "iconoteka-lib-test": "github:kot-lex/iconoteka-lib-test#0f783fdc9fc49d8b27a5cc2833938a43b4e9e4fa",
-    "node-sass": "^4.11.0",
+    "node-sass": "^7.0.0",
     "prop-types": "^15.6.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
